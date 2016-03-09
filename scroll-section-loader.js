@@ -17,7 +17,7 @@ angular.module('scrollSectionLoader', []).
           var scrollPos = (document.body.scrollTop || document.documentElement.scrollTop) + document.documentElement.clientHeight;
           var elemBottom = element[0].offsetTop + element[0].offsetHeight;
           if(scrollPos >= elemBottom) { //scrolled to bottom of scrollSection element
-            $window.unbind(event); //this listener is no longer needed.
+            $window.unbind(event.type); //this listener is no longer needed.
             if(loadedSections.length < sections.length) { //if there are still elements to load
               //use $apply because we're in the window event context
               scope.$apply(loadedSections.push(sections[loadedSections.length])); //add next section
